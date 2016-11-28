@@ -1,4 +1,4 @@
-.main-container .profvis {
+.main-container .autoCaret {
   border: 1px solid rgb(196, 201, 204);
   border-radius: 3px;
   margin-bottom: 10px;
@@ -13,5 +13,5 @@ img {
 #overview-image {
   border: none;
   box-shadow: none;
-  margin-left: 15px;
+  margin-right: 15px;
 }
