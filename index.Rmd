@@ -20,9 +20,9 @@ knit_print.htmlwidget <- function(x, ...) {
 
 ## Overview
 
-<img src="images/autoCaretlogo.png" id="overview-image" width=350 height=125 align="right"/>
+<img src="images/autoCaretlogo.png" id="overview-image" width=100 height=50 align="right"/>
 
-[auto](https://github.com/gregce/autoCaret) is a tool for helping business analysts and other enthusiats to understand how to begin building predictive models in R. It provides a interactive graphical interface for performing "auto modeling" for binary classification problems and is based on the underlying features and functionality provided by both the `caret` and `caretEnsemble` R packages. 
+[autoCaret](https://github.com/gregce/autoCaret) is a tool for helping business analysts and other enthusiats to understand how to begin building predictive models in R. It provides a interactive graphical interface for performing "auto modeling" for binary classification problems and is based on the underlying features and functionality provided by both the `caret` and `caretEnsemble` R packages. 
 
 ## Getting started
 
