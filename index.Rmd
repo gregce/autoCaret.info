@@ -22,8 +22,6 @@ knit_print.htmlwidget <- function(x, ...) {
 
 ## Overview
 
-
-
 <img src="images/autoCaretlogo.png" id="overview-image" width=160 height=80 align="left"/>
 
 is a tool for helping business analysts and other enthusiats to understand how to begin building predictive models in R.
@@ -38,4 +36,4 @@ To install **autoCaret** from GitHub:
 devtools::install_github("gregce/autoCaret")
 ```
 
-The RStudio IDE includes integrated support for using autoCaret as an add-in. with profvis. These features are available in the current [Release of RStudio](https://www.rstudio.com/products/rstudio/download/).
+The RStudio IDE includes integrated support for using autoCaret as an add-in. These features are available in the current [Release of RStudio](https://www.rstudio.com/products/rstudio/download/).
