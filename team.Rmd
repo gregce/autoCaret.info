@@ -1,8 +1,5 @@
 ---
-title: "Examples"
-output:
-  html_document:
-    toc: true
+title: "About the Team"
 ---
 
 ```{r echo = FALSE}
@@ -22,5 +19,3 @@ knit_print.htmlwidget <- function(x, ...) {
 }
 ```
 
-
-Below are some examples of autoCaret in use. 
