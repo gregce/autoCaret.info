@@ -48,9 +48,9 @@ Additionally, the RStudio IDE includes integrated support for using autoCaret as
 
 ## Using `autoModel`
 
-We begin by loading the `mlbench` pakacage and some example data, Sonar, which is commonly used to demostrate machine learning functionality. In this example, we will attempt to distinguish Mines (M) from Rocks (R) using binary classification with an initial dataset of where N=208 and P=60.  
+We begin by loading the `mlbench` pakacage and some example data `Sonar` which is commonly used to binary classification problems. In this example, we will attempt to distinguish Mines (M) from Rocks (R) using binary classification with an initial dataset of where N=208 and P=60.  
 
-As a general rule, when using `autoCaret::autoModel` defaults, datasets less than 100mb should yield optimal performance. and in order to avoid extremely long run times and/or high memory requirements. 
+As a general rule, when using `autoCaret::autoModel` defaults, datasets less than 100 mb should yield optimal performance and likely avoid extremely long run times & high memory requirements. 
 
 ```{r, eval=TRUE}
 library(mlbench)
@@ -67,7 +67,7 @@ names(Sonar)
 ```
 
 
-Having both the data loaded and having inspected it, we can now make use of the `autoCaret::autoModel()` function As stated above, we intend to try and distinguish Rocks (R) from Mines (R), so we will attempt to predict the `Class` variable in the Sonar dataframe.
+Having both the data loaded and having inspected it, we can now make use of the `autoCaret::autoModel()` function In this example, we'd like to try and distinguish Rocks (R) from Mines (R), so we will attempt to predict the `Class` variable in the Sonar dataframe.
 
 Using it's defaults, `autoModel` has 2 arguments we need to specify: `df` and `y`.
 

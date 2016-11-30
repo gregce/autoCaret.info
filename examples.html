@@ -321,8 +321,8 @@ div.tocify {
 <p>Additionally, the RStudio IDE includes integrated support for using autoCaret as an add-in. These features are available in the current <a href="https://www.rstudio.com/products/rstudio/download/">Release of RStudio</a>.</p>
 <div id="using-automodel" class="section level2">
 <h2>Using <code>autoModel</code></h2>
-<p>We begin by loading the <code>mlbench</code> pakacage and some example data, Sonar, which is commonly used to demostrate machine learning functionality. In this example, we will attempt to distinguish Mines (M) from Rocks (R) using binary classification with an initial dataset of where N=208 and P=60.</p>
-<p>As a general rule, when using <code>autoCaret::autoModel</code> defaults, datasets less than 100mb should yield optimal performance. and in order to avoid extremely long run times and/or high memory requirements.</p>
+<p>We begin by loading the <code>mlbench</code> pakacage and some example data <code>Sonar</code> which is commonly used to binary classification problems. In this example, we will attempt to distinguish Mines (M) from Rocks (R) using binary classification with an initial dataset of where N=208 and P=60.</p>
+<p>As a general rule, when using <code>autoCaret::autoModel</code> defaults, datasets less than 100 mb should yield optimal performance and likely avoid extremely long run times &amp; high memory requirements.</p>
 <pre class="r"><code>library(mlbench)
 library(autoCaret)
 
@@ -343,7 +343,7 @@ names(Sonar)
 #&gt; [41] &quot;V41&quot;   &quot;V42&quot;   &quot;V43&quot;   &quot;V44&quot;   &quot;V45&quot;   &quot;V46&quot;   &quot;V47&quot;   &quot;V48&quot;  
 #&gt; [49] &quot;V49&quot;   &quot;V50&quot;   &quot;V51&quot;   &quot;V52&quot;   &quot;V53&quot;   &quot;V54&quot;   &quot;V55&quot;   &quot;V56&quot;  
 #&gt; [57] &quot;V57&quot;   &quot;V58&quot;   &quot;V59&quot;   &quot;V60&quot;   &quot;Class&quot;</code></pre>
-<p>Having both the data loaded and having inspected it, we can now make use of the <code>autoCaret::autoModel()</code> function As stated above, we intend to try and distinguish Rocks (R) from Mines (R), so we will attempt to predict the <code>Class</code> variable in the Sonar dataframe.</p>
+<p>Having both the data loaded and having inspected it, we can now make use of the <code>autoCaret::autoModel()</code> function In this example, we’d like to try and distinguish Rocks (R) from Mines (R), so we will attempt to predict the <code>Class</code> variable in the Sonar dataframe.</p>
 <p>Using it’s defaults, <code>autoModel</code> has 2 arguments we need to specify: <code>df</code> and <code>y</code>.</p>
 <p><code>df</code> is the Dataframe that we’d like to use build a binary classification model, while <code>y</code> is our classification target or response variable. We can use a non-exported package function, <code>autoCaret:::checkBinaryTrait</code> to determine if our <code>y</code> variable is indeed binary. The <code>autoModel</code> functionality will perform this for us as well.</p>
 <pre class="r"><code># Manually check that our intended y paramter is indeed binary
@@ -359,6 +359,8 @@ mod &lt;- autoCaret::autoModel(df = Sonar, y = Class, progressBar = FALSE)</code
 <p>In the example above, the returned object, <code>mod</code>, is an <code>autoCaret</code> object containing 16 objects. To confirm, we can run the below two commmands:</p>
 <pre class="r"><code># Check class of autoCaret object
 class(mod)
+#&gt; 
+#&gt; This data.table install has not detected OpenMP support. It will work but slower in single threaded mode.
 #&gt; [1] &quot;autoCaret&quot;
 
 # High level 
