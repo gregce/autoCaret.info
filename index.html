@@ -285,7 +285,7 @@ div.tocify {
   <a href="index.html">Home</a>
 </li>
 <li>
-  <a href="examples.html">Getting Started &amp; Examples</a>
+  <a href="examples.html">Getting Started</a>
 </li>
 <li>
   <a href="team.html">Team</a>
@@ -315,14 +315,15 @@ div.tocify {
 <p><img src="images/autoCaretUI.png" id="overview-image" width=350 height=200 align="right"/></p>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p><a href="http://github.com/gregce/autoCaret/" target="_top">autoCaret</a> is an <code>R</code> package for helping business analysts and other enthusiasts understand how to begin building predictive models in <code>R</code>.</p>
+<p><a href="http://github.com/gregce/autoCaret/" target="_top">autoCaret</a> is a <code>R</code> package for helping business analysts and other enthusiasts understand how to begin building predictive models in <code>R</code>.</p>
 <p>It leverages and wraps underlying features and functionality provided by both the <a href="http://caret.r-forge.r-project.org/" target="_top">caret</a>, (short for <strong>C</strong>lassification <strong>A</strong>nd <strong>RE</strong>gression <strong>T</strong>raining) and <a href="https://cran.rstudio.com/web/packages/caretEnsemble/index.html" target="_top">caretEnsemble</a> <code>R</code> packages in an effort to provide a simple programmatic interface for analysts who would like to begin working on <a href="https://en.wikipedia.org/wiki/Binary_classification" target="_top">binary classification problems</a> .</p>
-<p>Also included in the package is also an intuitive graphical interface (in the form of an <a href="https://rstudio.github.io/rstudioaddins/#overview" target="_top">RStudio Add-In</a>) that allows for an easy introduction into the package’s main functionality - producing an ensemble model via <code>autocaret::automodel()</code> - in order to help speed the learning and development process.</p>
+<p>Also included in the package is also an intuitive graphical interface - in the form of an <a href="https://rstudio.github.io/rstudioaddins/#overview" target="_top">RStudio Add-In</a> - that allows for an easy introduction into the package’s main functionality - producing an ensemble model via <code>autocaret::automodel()</code> - in order to help speed the learning and development process.</p>
+<p><br></p>
 </div>
 <div id="why-autocaret" class="section level2">
-<h2>Why autoCaret?</h2>
+<h2>Why <code>autoCaret</code>?</h2>
 <div id="its-easy-to-believe-that-machine-learning-is-hard" class="section level3">
-<h3>1. It’s easy to believe that Machine Learning is hard</h3>
+<h3>1. It’s easy to believe that machine learning is hard</h3>
 <p>We fundamentally believe that the <em>best ideas</em> and <em>concepts</em> in machine learning are simple but that current literature and accessibility to “getting started” with machine learning sometimes puts walls up against these ideas.</p>
 <p>We think:</p>
 <ul>
@@ -330,35 +331,38 @@ div.tocify {
 <li>These tools should allow for a linear path enabling their users to graduate into using the underlying language(s) used to make them</li>
 <li>There needs to be a focus on an analyst’s understanding about what is happening, said differently: robust explanation/summarization about the modeling process is best</li>
 </ul>
+<p><br></p>
 </div>
-<div id="making-machine-learning-easy-is-important" class="section level3">
-<h3>2. Making Machine Learning Easy is important</h3>
-<p>Machine learning is a field that is only growing in it’s pervasiveness. We think that additional tools need to be built to get analysts, who might not have much experience using <code>R</code> or other programming languages engaged and excited about using machine learning.</p>
+<div id="making-machine-learning-easier-is-important" class="section level3">
+<h3>2. Making machine learning easier is important</h3>
+<p>Machine learning is a field that will only continue to pervade modern life. We think that additional tools need to be built to get analysts, who might not have much experience using <code>R</code> or other programming languages, engaged and excited about using machine learning in their day to day.</p>
 <p>Why is this so important?</p>
 <ul>
 <li>Machine learning can allow for automated decision making - freeing up human time to work on tasks requiring creativity</li>
 <li>Machine learning methods add to current heuristic or rule based approaches, most fundamentally, they enable the ability to “learn” without being explicitly programmed</li>
 <li>It’s pretty clear that <a href=" http://www.gartner.com/smarterwithgartner/what-we-can-do-with-machine-learning/" target="_top">Machine learning is revolutionizing every industry</a> - analysts and others have a real need to understand what is going on “behind the curtain” since most use it daily without even noticing.</li>
 </ul>
+<p><br></p>
 </div>
 <div id="its-feasible-to-make-machine-learning-even-easier" class="section level3">
-<h3>3. It’s feasible to make Machine Learning even easier!</h3>
+<h3>3. It’s feasible to make machine learning even easier!</h3>
 <p>While <code>R</code> tools like <code>caret</code> have brought us a long way in the effort to standardize many of the commonly repeated parts of the process required for building predictive models, there is no reason we can’t further package this process.</p>
 <p>Python tools like <a href="https://github.com/rhiever/tpot" target="_top">TpoT</a> have attempted to do this using genetic programming. Additionally there are a number of proprietary tools built by companies like <a href="https://bigml.com/" target="_top">BigMl</a> and <a href="https://www.datarobot.com/" target="_top">DataRobot</a> that also seek to automate machine learning tasks.</p>
 <p>The <code>autoCaret</code> package intends to take an analagous but simpler approach:</p>
 <ul>
 <li>We have an initial focus on binary classification</li>
-<li>We expose a minimal set of functions to the user and allow the objects returned to be interacted with <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/InternalMethods.html" target="_top">internal generics</a> like <code>summary()</code> and <code>predict</code></li>
+<li>We expose a minimal set of functions to the user and allow the objects returned to be interacted with <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/InternalMethods.html" target="_top">internal generics</a> like <code>summary()</code> and <code>predict()</code></li>
 <li>We make available a dead simple GUI for those who’d prefer to use one over the command line (at first, at least, we hope)</li>
-<li>We’re open source and on <a href="http://github.com/gregce/autoCaret/" target="_top">GitHub</a></li>
+<li>We’re open source and on <a href="http://github.com/gregce/autoCaret/" target="_top">GitHub</a>. Send a <a href="https://github.com/gregce/autoCaret/pulls" target="_top">pull request</a>!</li>
 </ul>
+<p><br></p>
 </div>
 </div>
 <div id="where-does-autocaret-fit" class="section level2">
-<h2>Where does autoCaret fit?</h2>
-<p>Both sourcing raw data and cleaning it are the responsibility of the end user. Otherwise, many of the most tedious parts of the predictive model process are covered by autoCaret! Be sure to see our <a href="https://github.com/gregce/autoCaret/blob/master/vignettes/autoCaret.Rmd" target="_top">getting started guide</a> or explore other examples shown on this page.</p>
+<h2>Where does <code>autoCaret</code> fit?</h2>
+<p>Both sourcing raw data and cleaning it are the responsibility of the end user. Otherwise, many of the most tedious parts of the predictive model process are covered by <code>autoCaret</code>! Be sure to see the <a href="https://github.com/gregce/autoCaret/blob/master/vignettes/autoCaret.Rmd" target="_top">getting started guide</a> included with the package or explore other examples shown on this page.</p>
 <p><img src="images/autoCaretSolution.png" id="overview-image" align="center"/></p>
-<p>Unfortunately, there are too many potential possibilities for a <code>R</code> package like <code>autoCaret</code> to be able to provide functionality that would provide acceptable performance or even begin to be able to automate the data cleaning process. There are, however; a suite of great tools that do help and should be explored – the github page <a href=" https://github.com/rstudio/RStartHere" target="_top">RStartHere</a> is a great place to get acquainted!</p>
+<p>There are too many potential possibilities for a <code>R</code> package like <code>autoCaret</code> to be able to provide functionality that would provide acceptable performance or even begin to be able to automate the data cleaning process. There are, however; a great wealth of tools that do help and should be explored – the github page <a href=" https://github.com/rstudio/RStartHere" target="_top">RStartHere</a> is a great place to get begin getting acquainted!</p>
 </div>
 
 

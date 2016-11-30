@@ -3,6 +3,9 @@ title: "Getting Started"
 output:
   html_document:
     toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: true
 ---
 
 ```{r echo = FALSE}
@@ -22,7 +25,7 @@ knit_print.htmlwidget <- function(x, ...) {
 }
 ```
 
-To install **autoCaret** from GitHub:
+To install the first _preview_ release of **autoCaret** from GitHub:
 
 ```{r eval=FALSE}
 devtools::install_github("gregce/autoCaret")
@@ -31,4 +34,15 @@ devtools::install_github("gregce/autoCaret")
 The RStudio IDE includes integrated support for using autoCaret as an add-in. These features are available in the current [Release of RStudio](https://www.rstudio.com/products/rstudio/download/).
 Below are some examples of autoCaret in use. 
 
-## Examples
+## Using `autoModel`
+
+
+## Exploring an `autoCaret` object
+
+
+## Making predictions using `autoCaret`
+
+
+
+
+

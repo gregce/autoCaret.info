@@ -6,7 +6,7 @@ navbar:
   left:
     - text: "Home"
       href: index.html
-    - text: "Getting Started & Examples"
+    - text: "Getting Started"
       href: examples.html
     - text: "Team"
       href: team.html
@@ -17,7 +17,3 @@ output:
     theme: cosmo
     highlight: textmate
     css: styles.css
-    toc: true
-    toc_float:
-      collapsed: false
-      smooth_scroll: true

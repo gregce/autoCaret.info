@@ -2,6 +2,10 @@
 title: "About the Team"
 ---
 
+```{r setup, include=FALSE}
+source("utils.R")
+```
+
 ```{r echo = FALSE}
 
 knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
@@ -19,3 +23,6 @@ knit_print.htmlwidget <- function(x, ...) {
 }
 ```
 
+```{r, echo=FALSE, warning=FALSE}
+examples(caption = FALSE, team = TRUE)
+```
