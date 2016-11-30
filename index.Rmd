@@ -23,7 +23,7 @@ knit_print.htmlwidget <- function(x, ...) {
 ## Overview
 
 <a href="http://github.com/gregce/autoCaret/" target="_top">autoCaret</a>
- is an `R` package for helping business analysts and other enthusiats understand how to begin building predictive models in `R`.
+ is an `R` package for helping business analysts and other enthusiasts understand how to begin building predictive models in `R`.
 
 It leverages and wraps underlying features and functionality provided by both the <a href="http://caret.r-forge.r-project.org/" target="_top">caret</a>, (short for **C**lassification **A**nd **RE**gression **T**raining)
 and  <a href="https://cran.rstudio.com/web/packages/caretEnsemble/index.html" target="_top">caretEnsemble</a> `R` packages in an effort to provide a simple programmatic interface for analysts who would like to begin working on <a href="https://en.wikipedia.org/wiki/Binary_classification" target="_top">binary classification problems</a> . 
