@@ -71,6 +71,6 @@ Both sourcing raw data and cleaning it are the responsibility of the end user. O
 
 <img src="images/autoCaretSolution.png" id="overview-image" align="center"/>
 
-Unfortunately, there are too many potential possibilities for a R package like `autoCaret` to be able to provide functionality that would provide acceptable performance or even begin to be able to automate the data cleaning process. There are, however; a suite of great tools that do help and should be explored -- the github page <a href=" https://github.com/rstudio/RStartHere" target="_top">RStartHere</a> is a great place to get acquainted!
+Unfortunately, there are too many potential possibilities for a `R` package like `autoCaret` to be able to provide functionality that would provide acceptable performance or even begin to be able to automate the data cleaning process. There are, however; a suite of great tools that do help and should be explored -- the github page <a href=" https://github.com/rstudio/RStartHere" target="_top">RStartHere</a> is a great place to get acquainted!
 
 

@@ -22,8 +22,6 @@ knit_print.htmlwidget <- function(x, ...) {
 }
 ```
 
-<img src="images/autoCaretlogo.png" id="overview-image" width=160 height=80 align="left"/>
-
 
 ## Getting started
 
