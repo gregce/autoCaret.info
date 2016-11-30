@@ -15,17 +15,13 @@
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-1.1/textmate.css" rel="stylesheet" />
+<link href="site_libs/highlightjs-1.1/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-1.1/highlight.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -70,7 +66,6 @@ h6 {
 }
 </style>
 
-<link rel="stylesheet" href="styles.css" type="text/css" />
 
 </head>
 
@@ -99,58 +94,6 @@ button.code-folding-btn:focus {
 </style>
 
 
-<style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-</style>
-
-<script>
-// manage active state of menu based on current page
-$(document).ready(function () {
-  // active menu anchor
-  href = window.location.pathname
-  href = href.substr(href.lastIndexOf('/') + 1)
-  if (href === "")
-    href = "index.html";
-  var menuAnchor = $('a[href="' + href + '"]');
-
-  // mark it active
-  menuAnchor.parent().addClass('active');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
-});
-</script>
-
 
 <div class="container-fluid main-container">
 
@@ -166,142 +109,7 @@ $(document).ready(function () {
 
 
 
-<script>
-$(document).ready(function ()  {
 
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
-
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-  padding-left: 25px;
-  text-indent: 0;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-.tocify-subheader {
-  display: inline;
-}
-.tocify-subheader .tocify-item {
-  font-size: 0.95em;
-}
-
-</style>
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
-
-
-
-
-<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="index.html">autoCaret</a>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li>
-  <a href="index.html">Home</a>
-</li>
-<li>
-  <a href="examples.html">Getting Started &amp; Examples</a>
-</li>
-<li>
-  <a href="team.html">Team</a>
-</li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/gregce/autoCaret/">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  </div><!--/.container -->
-</div><!--/.navbar -->
 
 <div class="fluid-row" id="header">
 
@@ -338,33 +146,29 @@ div.tocify {
 <ul>
 <li>Machine learning can allow for automated decision making - freeing up human time to work on tasks requiring creativity</li>
 <li>Machine learning methods add to current heuristic or rule based approaches, most fundamentally, they enable the ability to “learn” without being explicitly programmed</li>
-<li>It’s pretty clear that <a href=" http://observer.com/2016/11/machine-learning-is-revolutionizing-every-industry/" target="_top">Machine learning is revolutionizing every industry</a> - analysts and others have a real need to understand what is going on “behind the curtain”</li>
+<li>It’s pretty clear that <a href="http://observer.com/2016/11/machine-learning-is-revolutionizing-every-industry/">Machine learning is revolutionizing every industry</a> - analysts and others have a real need to understand what is going on “behind the curtain”</li>
 </ul>
 </div>
 <div id="its-feasible-to-make-machine-learning-even-easier" class="section level3">
 <h3>3. It’s feasible to make Machine Learning even easier!</h3>
 <p>While <code>R</code> tools like <code>caret</code> have brought us a long way in the effort to standardize many of the commonly repeated parts of the process required for building predictive models, there is no reason we can’t further package this process.</p>
-<p>Python tools like <a href=" https://github.com/rhiever/tpot" target="_top">TpoT</a> have attempted to do this using genetic programming. Additionally there are a number of proprietary tools built by companies like BigMl</p>
+<p>Python tools like <a href="https://github.com/rhiever/tpot">TpoT</a> have attempted to do this using genetic programming. Additionally there are a number of proprietary tools built by companies like BigMl</p>
 <p>The <code>autoCaret</code> package intends to take an analagous but simpler approach:</p>
 <ul>
 <li>We have an initial focus on binary classification</li>
-<li>We expose a minimal set of functions to the user and allow the objects returned to be interacted with <a href="https://stat.ethz.ch/R-manual/R-devel/library/base/html/InternalMethods.html" target="_top">internal generics</a> like <code>summary()</code> and <code>predict</code></li>
+<li>We expose a minimal set of functions to the user and allow the objects returned to be interacted with generics like <code>summary()</code> and <code>predict</code></li>
 <li>We make available a dead simple GUI for those who’d prefer to use one over the command line (at first, at least, we hope)</li>
-<li>We’re open source and on <a href="http://github.com/gregce/autoCaret/" target="_top">GitHub</a></li>
+<li>We’re open source and on <a href="www.github.com">GitHub</a></li>
 </ul>
 </div>
 </div>
 <div id="where-does-autocaret-fit" class="section level2">
 <h2>Where does autoCaret fit?</h2>
-<p>Both sourcing raw data and cleaning it are the responsibility of the end user. Otherwise, many of the most tedious parts of the predictive model process are covered by autoCaret! Be sure to see our <a href="https://github.com/gregce/autoCaret/blob/master/vignettes/autoCaret.Rmd" target="_top">getting started guide</a> or explore other examples shown on this page.</p>
 <p><img src="images/autoCaretSolution.png" id="overview-image" align="center"/></p>
-<p>Unfortunately, there are too many potential possibilities for a R package like <code>autoCaret</code> to be able to provide functionality that would provide acceptable performance or even begin to be able to automate the data cleaning process. There are, however; a suite of great tools that do help and should be explored – the github page <a href=" https://github.com/rstudio/RStartHere" target="_top">RStartHere</a> is a great place to get acquainted!</p>
 </div>
 
 
 
-</div>
-</div>
 
 </div>
 
