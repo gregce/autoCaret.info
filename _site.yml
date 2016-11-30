@@ -12,7 +12,6 @@ navbar:
       href: team.html
   right:
     - icon: fa-github fa-lg
-      href: http://github.com/gregce/autoCaret/?target_top
 output:
   html_document:
     theme: cosmo
