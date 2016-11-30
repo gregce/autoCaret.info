@@ -1,5 +1,5 @@
 ---
-title: "Examples"
+title: "Getting Started"
 output:
   html_document:
     toc: true
@@ -22,9 +22,6 @@ knit_print.htmlwidget <- function(x, ...) {
 }
 ```
 
-
-## Getting started
-
 To install **autoCaret** from GitHub:
 
 ```{r eval=FALSE}
@@ -33,3 +30,5 @@ devtools::install_github("gregce/autoCaret")
 
 The RStudio IDE includes integrated support for using autoCaret as an add-in. These features are available in the current [Release of RStudio](https://www.rstudio.com/products/rstudio/download/).
 Below are some examples of autoCaret in use. 
+
+## Examples
