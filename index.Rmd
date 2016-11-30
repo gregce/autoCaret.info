@@ -56,7 +56,7 @@ Why is this so important?
 
 While `R` tools like `caret` have brought us a long way in the effort to standardize many of the commonly repeated parts of the process required for building predictive models, there is no reason we can't further package this process. 
 
-Python tools like <a href=" https://github.com/rhiever/tpot" target="_top">TpoT</a> have attempted to do this using genetic programming. Additionally there are a number of proprietary tools built by companies like BigMl
+Python tools like <a href="https://github.com/rhiever/tpot" target="_top">TpoT</a> have attempted to do this using genetic programming. Additionally there are a number of proprietary tools built by companies like <a href="https://bigml.com/" target="_top">BigMl</a> and <a href="https://www.datarobot.com/" target="_top">DataRobot</a> that also seek to automate machine learning tasks.
 
 The `autoCaret` package intends to take an analagous but simpler approach:
 
