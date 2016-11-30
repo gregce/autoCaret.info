@@ -26,7 +26,7 @@ knit_print.htmlwidget <- function(x, ...) {
  is an `R` package for helping business analysts and other enthusiats understand how to begin building predictive models in `R`.
 
 It leverages and wraps underlying features and functionality provided by both the <a href="http://caret.r-forge.r-project.org/" target="_top">caret</a>, (short for **C**lassification **A**nd **RE**gression **T**raining)
-and  <a href="https://cran.rstudio.com/web/packages/caretEnsemble/index.html" target="_top">caretEnsemble</a> `R` packages in an effort to provide a simple programmatic interface for analysts who would like to begin working on <a href="https://en.wikipedia.org/wiki/Binary_classificationl" target="_top">binary classification problems</a> . 
+and  <a href="https://cran.rstudio.com/web/packages/caretEnsemble/index.html" target="_top">caretEnsemble</a> `R` packages in an effort to provide a simple programmatic interface for analysts who would like to begin working on <a href="https://en.wikipedia.org/wiki/Binary_classification" target="_top">binary classification problems</a> . 
 
 Also included in the package is also an intuitive graphical interface (in the form of an <a href="https://rstudio.github.io/rstudioaddins/#overview" target="_top">RStudio Add-In</a>) that allows for an easy introduction into the package's main functionality - producing an ensemble model via `autocaret::automodel()` - in order to help speed the learning and development process.
 
@@ -50,7 +50,7 @@ Why is this so important?
 
 - Machine learning can allow for automated decision making - freeing up human time to work on tasks requiring creativity
 - Machine learning methods add to current heuristic or rule based approaches, most fundamentally, they enable the ability to "learn" without being explicitly programmed
-- It's pretty clear that  <a href=" http://observer.com/2016/11/machine-learning-is-revolutionizing-every-industry/" target="_top">Machine learning is revolutionizing every industry</a> - analysts and others have a real need to understand what is going on "behind the curtain"
+- It's pretty clear that  <a href=" http://www.gartner.com/smarterwithgartner/what-we-can-do-with-machine-learning/" target="_top">Machine learning is revolutionizing every industry</a> - analysts and others have a real need to understand what is going on "behind the curtain" since most use it daily without even noticing.
 
 ### 3. It's feasible to make Machine Learning even easier!
 
