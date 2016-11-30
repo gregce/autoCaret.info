@@ -312,17 +312,216 @@ div.tocify {
 </div>
 
 
-<p>To install the first <em>preview</em> release of <strong>autoCaret</strong> from GitHub:</p>
+<p>Currently, the <code>autoCaret</code> package is not hosted on CRAN, but can be obtained from GitHub. To do so, first make sure you have <a href="https://cran.r-project.org/web/packages/devtools/index.html">devtools</a> installed.</p>
+<pre class="r"><code>install.packages(&quot;devtools&quot;)</code></pre>
+<p>To install the first <em>preview release</em> of <code>autoCaret</code> from GitHub:</p>
 <pre class="r"><code>devtools::install_github(&quot;gregce/autoCaret&quot;)</code></pre>
-<p>The RStudio IDE includes integrated support for using autoCaret as an add-in. These features are available in the current <a href="https://www.rstudio.com/products/rstudio/download/">Release of RStudio</a>. Below are some examples of autoCaret in use.</p>
+<p>Once the <code>autoCaret</code> package is installed, you may access its functionality as you would any other package by calling:</p>
+<pre class="r"><code>library(&quot;autoCaret&quot;)</code></pre>
+<p>Additionally, the RStudio IDE includes integrated support for using autoCaret as an add-in. These features are available in the current <a href="https://www.rstudio.com/products/rstudio/download/">Release of RStudio</a>.</p>
 <div id="using-automodel" class="section level2">
 <h2>Using <code>autoModel</code></h2>
+<p>We begin by loading the <code>mlbench</code> pakacage and some example data, Sonar, which is commonly used to demostrate machine learning functionality. In this example, we will attempt to distinguish Mines (M) from Rocks (R) using binary classification with an initial dataset of where N=208 and P=60.</p>
+<p>As a general rule, when using <code>autoCaret::autoModel</code> defaults, datasets less than 100mb should yield optimal performance. and in order to avoid extremely long run times and/or high memory requirements.</p>
+<pre class="r"><code>library(mlbench)
+library(autoCaret)
+
+# Load the data into Memory from the mlbench package
+data(&quot;Sonar&quot;)
+
+# Summarize Sonar&#39;s Size
+dim(Sonar)
+#&gt; [1] 208  61
+
+# Check out Variable Names
+names(Sonar)
+#&gt;  [1] &quot;V1&quot;    &quot;V2&quot;    &quot;V3&quot;    &quot;V4&quot;    &quot;V5&quot;    &quot;V6&quot;    &quot;V7&quot;    &quot;V8&quot;   
+#&gt;  [9] &quot;V9&quot;    &quot;V10&quot;   &quot;V11&quot;   &quot;V12&quot;   &quot;V13&quot;   &quot;V14&quot;   &quot;V15&quot;   &quot;V16&quot;  
+#&gt; [17] &quot;V17&quot;   &quot;V18&quot;   &quot;V19&quot;   &quot;V20&quot;   &quot;V21&quot;   &quot;V22&quot;   &quot;V23&quot;   &quot;V24&quot;  
+#&gt; [25] &quot;V25&quot;   &quot;V26&quot;   &quot;V27&quot;   &quot;V28&quot;   &quot;V29&quot;   &quot;V30&quot;   &quot;V31&quot;   &quot;V32&quot;  
+#&gt; [33] &quot;V33&quot;   &quot;V34&quot;   &quot;V35&quot;   &quot;V36&quot;   &quot;V37&quot;   &quot;V38&quot;   &quot;V39&quot;   &quot;V40&quot;  
+#&gt; [41] &quot;V41&quot;   &quot;V42&quot;   &quot;V43&quot;   &quot;V44&quot;   &quot;V45&quot;   &quot;V46&quot;   &quot;V47&quot;   &quot;V48&quot;  
+#&gt; [49] &quot;V49&quot;   &quot;V50&quot;   &quot;V51&quot;   &quot;V52&quot;   &quot;V53&quot;   &quot;V54&quot;   &quot;V55&quot;   &quot;V56&quot;  
+#&gt; [57] &quot;V57&quot;   &quot;V58&quot;   &quot;V59&quot;   &quot;V60&quot;   &quot;Class&quot;</code></pre>
+<p>Having both the data loaded and having inspected it, we can now make use of the <code>autoCaret::autoModel()</code> function As stated above, we intend to try and distinguish Rocks (R) from Mines (R), so we will attempt to predict the <code>Class</code> variable in the Sonar dataframe.</p>
+<p>Using it’s defaults, <code>autoModel</code> has 2 arguments we need to specify: <code>df</code> and <code>y</code>.</p>
+<p><code>df</code> is the Dataframe that we’d like to use build a binary classification model, while <code>y</code> is our classification target or response variable. We can use a non-exported package function, <code>autoCaret:::checkBinaryTrait</code> to determine if our <code>y</code> variable is indeed binary. The <code>autoModel</code> functionality will perform this for us as well.</p>
+<pre class="r"><code># Manually check that our intended y paramter is indeed binary
+autoCaret:::checkBinaryTrait(Sonar$Class)
+#&gt; [1] TRUE
+
+# Generate an autoCaret object using the autoModel function
+mod &lt;- autoCaret::autoModel(df = Sonar, y = Class, progressBar = FALSE)</code></pre>
+<p><br></p>
 </div>
 <div id="exploring-an-autocaret-object" class="section level2">
 <h2>Exploring an <code>autoCaret</code> object</h2>
+<p>In the example above, the returned object, <code>mod</code>, is an <code>autoCaret</code> object containing 16 objects. To confirm, we can run the below two commmands:</p>
+<pre class="r"><code># Check class of autoCaret object
+class(mod)
+#&gt; [1] &quot;autoCaret&quot;
+
+# High level 
+nrow(summary.default(mod))
+#&gt; [1] 16</code></pre>
+<p>Running the summary function on our model output displays a wealth of information about the contents of the object as well as the procedural steps taken during modeling. In our example, we observe:</p>
+<ul>
+<li>that our initial dataset of 208 observation was split into a training and test set containing 167 and 41 observations</li>
+<li>Modeling took .64 minutes and entailed resampling our dataset 10 times</li>
+<li>We used the four default models to create an ensemble.</li>
+<li>Using the ensemble model that was generated to predict on the test set yield predictions with 92% accuracy.</li>
+</ul>
+<pre class="r"><code># Use the summary generic to store a summary of autoCaret object
+overview &lt;- summary(mod)
+#&gt; The input dataset had: 208 observations and 60 predictors 
+#&gt; ---------------------
+#&gt; Prior to model training, the input dataset was split into a training &amp; test set 
+#&gt; The training set has:  167  observations 
+#&gt; The test set has:      41  observations 
+#&gt; ---------------------
+#&gt; Overall modeling took: 0.64 minutes 
+#&gt; During that time the training data was boostrap resampled 10 times 
+#&gt; 
+#&gt; The following classification models were used to create an ensemble: 
+#&gt; - glm
+#&gt; - rpart
+#&gt; - rf
+#&gt; - xgbLinear
+#&gt; To learn more about ensemble learing in the context of machine learning, please visit: https://en.wikipedia.org/wiki/Ensemble_learning 
+#&gt; 
+#&gt; In the ensemble, the top 5 variables in order from highest to lowest level of relative importance, were: 
+#&gt; -  V11
+#&gt; -  V12
+#&gt; -  V9
+#&gt; -  V10
+#&gt; -  V36
+#&gt; ---------------------
+#&gt; When the ensemble model was used to predict on the held out test set of 41 observations it performed as follows: 
+#&gt; 
+#&gt; Overall Accuracy: 92.68
+#&gt; 
+#&gt; A confusion matrix demonstrating accuracy is as follows: 
+#&gt;           Reference
+#&gt; Prediction  R  M
+#&gt;          R 18  2
+#&gt;          M  1 20
+#&gt; 
+#&gt; Precision: 90
+#&gt; Recall: 94.74
+#&gt; ---------------------
+#&gt; To learn more about Precision &amp; Recall in the context of information retriveal, please visit: https://en.wikipedia.org/wiki/Precision_and_recall</code></pre>
+<p>We can also access each of the object variables included in the above displayed summary output via the object itself.</p>
+<pre class="r"><code># Print the overview to the console
+overview
+#&gt; $input_row_count
+#&gt; [1] 208
+#&gt; 
+#&gt; $input_col_count
+#&gt; [1] 61
+#&gt; 
+#&gt; $train_row_count
+#&gt; [1] 167
+#&gt; 
+#&gt; $test_row_count
+#&gt; [1] 41
+#&gt; 
+#&gt; $modeling_time
+#&gt; [1] 0.64
+#&gt; 
+#&gt; $number_resamples
+#&gt; [1] 10
+#&gt; 
+#&gt; $method_list
+#&gt; [1] &quot;glm&quot;       &quot;rpart&quot;     &quot;rf&quot;        &quot;xgbLinear&quot;
+#&gt; 
+#&gt; $confusionMatrix
+#&gt;           Reference
+#&gt; Prediction  R  M
+#&gt;          R 18  2
+#&gt;          M  1 20
+#&gt; 
+#&gt; $accuracy
+#&gt; [1] 92.68
+#&gt; 
+#&gt; $sensitivity
+#&gt; [1] 94.74
+#&gt; 
+#&gt; $specificity
+#&gt; [1] 90.91
+#&gt; 
+#&gt; $precision
+#&gt; [1] 90
+#&gt; 
+#&gt; $recall
+#&gt; [1] 94.74
+#&gt; 
+#&gt; $best_model_results
+#&gt;   model_name       ROC      Sens      Spec      ROCSD     SensSD
+#&gt; 1   ensemble 0.9337900 0.8095031 0.8953181 0.01498452 0.01089121
+#&gt; 2         rf 0.9052501 0.6901687 0.8829980 0.03551813 0.10603065
+#&gt; 3  xgbLinear 0.8702916 0.7168320 0.8185311 0.04529174 0.10874655
+#&gt; 4      rpart 0.7019527 0.6562942 0.7122567 0.08602055 0.15284623
+#&gt; 5        glm 0.6451431 0.5910052 0.6543618 0.08914517 0.08671003
+#&gt;       SpecSD
+#&gt; 1 0.04371527
+#&gt; 2 0.06784535
+#&gt; 3 0.08614794
+#&gt; 4 0.07226794
+#&gt; 5 0.10772096
+#&gt; 
+#&gt; attr(,&quot;class&quot;)
+#&gt; [1] &quot;summary.autoCaret&quot;</code></pre>
+<p><br></p>
 </div>
-<div id="making-predictions-using-autocaret" class="section level2">
-<h2>Making predictions using <code>autoCaret</code></h2>
+<div id="predicting-new-data" class="section level2">
+<h2>Predicting new data</h2>
+<p>So now that we have a sense of how successful our auto modeling approach was, we’d likely want to use the model, <code>mod</code>, we built previously to make predictions on new data we receive.</p>
+<p>Because this is an illustrative example, we’lll take a shortcut by just resampling the same data that we used to train on. The main point here is that you can simply pass your <code>autoCaret</code> model object, <code>mod</code>, into the <code>predict()</code> function along with new observations to generate predictions.</p>
+<pre class="r"><code>
+#For the sake of example, simulate new data by resampling our original data frame
+new &lt;- Sonar[sample(1:nrow(Sonar), 50, replace=TRUE),]
+
+#Make predicitons 
+preds &lt;- predict(mod, new)
+
+#Print Predictions 
+preds
+#&gt;  [1] M R M R R R R M R M R M M R M R R M M R M M M M R M M M R R M R R M M
+#&gt; [36] R M M M R R M M M R M M M M R
+#&gt; Levels: R M</code></pre>
+<p>How well did we do? Well a confusion matrix from the <code>caret</code> package can tell us!</p>
+<ul>
+<li>We only mispredicted one example, for overall accuracy of .98</li>
+<li><strong>Note:</strong> we wouldn’t expect this level of accuracy using real data given we resampled from our original training set.</li>
+</ul>
+<pre class="r"><code>## How well did we do?
+caret::confusionMatrix(data = preds, reference = new$Class)
+#&gt; Confusion Matrix and Statistics
+#&gt; 
+#&gt;           Reference
+#&gt; Prediction  M  R
+#&gt;          M 29  0
+#&gt;          R  1 20
+#&gt;                                           
+#&gt;                Accuracy : 0.98            
+#&gt;                  95% CI : (0.8935, 0.9995)
+#&gt;     No Information Rate : 0.6             
+#&gt;     P-Value [Acc &gt; NIR] : 2.775e-10       
+#&gt;                                           
+#&gt;                   Kappa : 0.9587          
+#&gt;  Mcnemar&#39;s Test P-Value : 1               
+#&gt;                                           
+#&gt;             Sensitivity : 0.9667          
+#&gt;             Specificity : 1.0000          
+#&gt;          Pos Pred Value : 1.0000          
+#&gt;          Neg Pred Value : 0.9524          
+#&gt;              Prevalence : 0.6000          
+#&gt;          Detection Rate : 0.5800          
+#&gt;    Detection Prevalence : 0.5800          
+#&gt;       Balanced Accuracy : 0.9833          
+#&gt;                                           
+#&gt;        &#39;Positive&#39; Class : M               
+#&gt; </code></pre>
 </div>
 
 

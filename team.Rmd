@@ -26,3 +26,9 @@ knit_print.htmlwidget <- function(x, ...) {
 ```{r, echo=FALSE, warning=FALSE}
 examples(caption = FALSE, team = TRUE)
 ```
+
+## Who we are
+
+We're a team of <a href="https://www.ischool.berkeley.edu/" target="_top">Berkeley ISchool</a> graduate students who happen to be passionate about Education, Data Science and the R programming language. This package was initially concepted and built as part of our degree's <a href="https://datascience.berkeley.edu/academics/curriculum/synthetic-capstone-course/" target="_top">Capstone</a> course and featured as a showcase project during December, 2016.
+
+If you'd like to work on helping us extend this package into the future, please create a <a href="https://github.com/gregce/autoCaret/pulls" target="_top">pull request</a> and connect with us!
