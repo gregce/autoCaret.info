@@ -29,7 +29,7 @@ knit_print.htmlwidget <- function(x, ...) {
 ## Overview
 
 <a href="http://github.com/gregce/autoCaret/" target="_top">autoCaret</a>
- is a `R` package for helping business analysts and other enthusiasts understand how to begin building predictive models in `R`.
+ is a `R` package for helping business analysts and other enthusiasts understand how to begin building predictive models in `R` via automation.
 
 It leverages and wraps underlying features and functionality provided by both the <a href="http://caret.r-forge.r-project.org/" target="_top">caret</a>, (short for **C**lassification **A**nd **RE**gression **T**raining)
 and  <a href="https://cran.rstudio.com/web/packages/caretEnsemble/index.html" target="_top">caretEnsemble</a> `R` packages in an effort to provide a simple programmatic interface for analysts who would like to begin working on <a href="https://en.wikipedia.org/wiki/Binary_classification" target="_top">binary classification problems</a> . 
@@ -65,7 +65,7 @@ Why is this so important?
 
 ### 3. It's feasible to make machine learning even easier!
 
-While `R` tools like `caret` have brought us a long way in the effort to standardize many of the commonly repeated parts of the process required for building predictive models, there is no reason we can't further package this process. 
+While `R` tools like `caret` have brought us a long way in the effort to standardize many of the commonly repeated parts of the process required for building predictive models, there is no reason we can't further streamline this process. 
 
 Python tools like <a href="https://github.com/rhiever/tpot" target="_top">TpoT</a> have attempted to do this using genetic programming. Additionally there are a number of proprietary tools built by companies like <a href="https://bigml.com/" target="_top">BigMl</a> and <a href="https://www.datarobot.com/" target="_top">DataRobot</a> that also seek to automate machine learning tasks.
 
