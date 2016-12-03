@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>autoCaret</title>
+    <meta charset="utf-8">
+    <meta name="author" content="Greg C, Michael M, Rock B" />
+    <link href="libs/remark-css/example.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle
+
+# autoCaret
+## make 🤖 machine learning easier
+### Greg C, Michael M, Rock B
+### 2016/12/7
+
+---
+
+
+
+
+class: left
+
+# Meet Tom. Tom is a data analyst.
+
+&lt;img src="images/slide1_tom.png" width="40%" height="40%" align="right"/&gt;
+
+
+### Tom’s skills:
+1. SQL
+2. Regex
+3. BI tools like Tableau
+4. Novice R programming
+
+---
+
+class: left
+
+# Meet Bob. Bob is a data scientist
+
+&lt;img src="images/slide2_bob.png" width="45%" height="45%" align="right"/&gt;
+
+
+### Bob’s skills:
+1. Machine learning
+2. Advanced Stats
+3. Experimentation
+4. Expert R programming
+
+---
+
+# Tom's boss John wants Tom to be like Bob
+
+&lt;img src="images/slide3_john_tom.png" width="105%" height="105%" align="middle"/&gt;
+
+---
+
+class: left
+
+# But machine learning is hard!
+
+&lt;img src="images/slide4_tom.png" width="40%" height="40%" align="right"/&gt;
+
+
+### Things to learn:
+1. More `R`
+2. Validation &amp; splitting
+3. Pre-processing
+4. Feature Selection
+5. Model Training
+6. Model selection
+7. Ensembling
+8. Validation 
+9. Model Extension, etc
+
+---
+
+class: left
+
+# Enter `autoCaret`!
+
+&lt;img src="images/slide5_r.png" width="30%" height="30%" align="right"/&gt;
+
+
+### What is it?
+- An `R` package for data analysts
+- Automates training binary classifiers
+- Has an easy to GUI via an R Studio Add-in
+- Wraps the `caret` and `caretEnsemble` packages
+- Allows the analyst to learn in the language they will progress into
+
+---
+
+class: left
+
+# autoCaret handles much of the ML tedium
+
+&lt;img src="images/slide6_autocaret.png" width="105%" height="105%" align="middle"/&gt;
+
+---
+
+# Tom can train a full model in 1 line of `R`
+
+
+```r
+library(autoCaret)
+library(mlbench)
+data(Sonar)
+
+mod &lt;- autoCaret::autoModel(Sonar, Class, progressBar = FALSE)
+```
+
+---
+
+# It also provides very useful output!
+
+
+
+
+```r
+summary(mod)
+```
+
+&lt;img src="images/slide7_summary.png" width="90%" height="90%" align="middle"/&gt;
+
+
+---
+
+class: left
+
+# autoCaret helps make Tom more like Bob
+
+&lt;img src="images/slide8_tom_bob.png" width="100%" height="100%" align="middle"/&gt;
+
+---
+
+class: center, middle
+
+# Thanks!
+
+autoCaret is available on [**github**](https://github.com/gregce/autoCaret).
+
+More info on the project, the package and its features can be found at [**autocaret.info**](http://autocaret.info).
+
+Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan) using  [R Markdown](https://rmarkdown.rstudio.com).
+    </textarea>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github"
+});</script>
+
+  </body>
+</html>

@@ -48,7 +48,7 @@ Additionally, the RStudio IDE includes integrated support for using autoCaret as
 
 ## Using `autoModel`
 
-We begin by loading the `mlbench` pakacage and some example data `Sonar` which is commonly used to binary classification problems. In this example, we will attempt to distinguish Mines (M) from Rocks (R) using binary classification with an initial dataset of where N=208 and P=60.  
+We begin by loading the `mlbench` package and some example data `Sonar` which is commonly used to binary classification problems. In this example, we will attempt to distinguish Mines (M) from Rocks (R) using binary classification with an initial dataset of where N=208 and P=60.  
 
 As a general rule, when using `autoCaret::autoModel` defaults, datasets less than 100 mb should yield optimal performance and likely avoid extremely long run times & high memory requirements. 
 

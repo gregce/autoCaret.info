@@ -1,0 +1,140 @@
+---
+title: "autoCaret"
+subtitle: "make 🤖 machine learning easier"
+author: "Greg C, Michael M, Rock B"
+date: "2016/12/7"
+output:
+  xaringan::moon_reader:
+    seal: yes
+    nature:
+      highlightStyle: github
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+class: left
+
+# Meet Tom. Tom is a data analyst.
+
+<img src="images/slide1_tom.png" width="40%" height="40%" align="right"/>
+
+
+### Tom’s skills:
+1. SQL
+2. Regex
+3. BI tools like Tableau
+4. Novice R programming
+
+---
+
+class: left
+
+# Meet Bob. Bob is a data scientist
+
+<img src="images/slide2_bob.png" width="45%" height="45%" align="right"/>
+
+
+### Bob’s skills:
+1. Machine learning
+2. Advanced Stats
+3. Experimentation
+4. Expert R programming
+
+---
+
+# Tom's boss John wants Tom to be like Bob
+
+<img src="images/slide3_john_tom.png" width="105%" height="105%" align="middle"/>
+
+---
+
+class: left
+
+# But machine learning is hard!
+
+<img src="images/slide4_tom.png" width="40%" height="40%" align="right"/>
+
+
+### Things to learn:
+1. More `R`
+2. Validation & splitting
+3. Pre-processing
+4. Feature Selection
+5. Model Training
+6. Model selection
+7. Ensembling
+8. Validation 
+9. Model Extension, etc
+
+---
+
+class: left
+
+# Enter `autoCaret`!
+
+<img src="images/slide5_r.png" width="30%" height="30%" align="right"/>
+
+
+### What is it?
+- An `R` package for data analysts
+- Automates training binary classifiers
+- Has an easy to GUI via an R Studio Add-in
+- Wraps the `caret` and `caretEnsemble` packages
+- Allows the analyst to learn in the language they will progress into
+
+---
+
+class: left
+
+# autoCaret handles much of the ML tedium
+
+<img src="images/slide6_autocaret.png" width="105%" height="105%" align="middle"/>
+
+---
+
+# Tom can train a full model in 1 line of `R`
+
+```{r message=FALSE, eval=FALSE, warnings=FALSE, message=FALSE, cache=TRUE, comment='#'}
+library(autoCaret)
+library(mlbench)
+data(Sonar)
+
+mod <- autoCaret::autoModel(Sonar, Class, progressBar = FALSE)
+```
+
+---
+
+# It also provides very useful output!
+
+```{r set-options, echo=FALSE, cache=FALSE}
+options(width = 200)
+```
+
+```{r warnings=FALSE, eval =FALSE, cache=TRUE, comment='#'}
+summary(mod)
+```
+
+<img src="images/slide7_summary.png" width="90%" height="90%" align="middle"/>
+
+
+---
+
+class: left
+
+# autoCaret helps make Tom more like Bob
+
+<img src="images/slide8_tom_bob.png" width="100%" height="100%" align="middle"/>
+
+---
+
+class: center, middle
+
+# Thanks!
+
+autoCaret is available on [**github**](https://github.com/gregce/autoCaret).
+
+More info on the project, the package and its features can be found at [**autocaret.info**](http://autocaret.info).
+
+Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan) using  [R Markdown](https://rmarkdown.rstudio.com).
