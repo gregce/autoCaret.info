@@ -12,9 +12,13 @@ output:
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
-options(width = 200)
 ```
 
+class: middle, center
+
+# Introduction
+
+---
 
 class: left
 
@@ -134,6 +138,61 @@ class: left
 # autoCaret helps make Andy be more like Scott
 
 <img src="images/slide8_andy_scott.png" width="95%" height="95%" align="middle"/>
+
+---
+
+class: middle, center
+
+# More Details
+
+---
+
+class: center
+
+
+# `autoCaret` helps meet the 2018 Data Scientist talent gap
+
+<img src="images/slide11_talent.png" width="70%" height="70%" align="middle"/>
+
+Source: [**McKinsey, 2016**](http://www.mckinsey.com/business-functions/digital-mckinsey/our-insights/big-data-the-next-frontier-for-innovation) 
+
+---
+
+class: center
+
+# `autoCaret` has competition but competes in both accessibility & reach!
+
+<img src="images/slide12_competition.png" width="80%" height="80%" align="middle"/>
+
+---
+
+class: left
+
+# `autoCaret` does have it's share of advantages!
+
+<img src="images/slide13_advantages.png" width="40%" height="40%" align="right"/>
+
+### Specifically, `autoCaret`:
+- Is free and open software with source avaialble on [github](https://github.com/gregce/autoCaret)
+- Is accessible to `R` users first and foremost, a large and growing community!
+- It joins an extremely strong and vibrant package ecosystem
+- It builds on top of two state of the art ML libraries, `caret` and `caretEnsemble` that are well supported
+- Compared to some of it's competitors, it has more useful documentation and a simpler interface
+- Oh, did we mention? It's free!
+
+---
+
+class: left
+
+# What might the future hold for `autoCaret`?
+
+<img src="images/slide14_future.png" width="40%" height="40%" align="right"/>
+
+- `autoCaret` will continue it's development on [github](https://github.com/gregce/autoCaret)
+- Will focus on adding regression capabilities and then look towards unsupervised techniques
+- We'll attempt to document and surface "reason codes" to allow for clearer exposition of decision making
+- We will likely reach out and partner with Max Kuhn and Zach Mayer (creators of caret and caretEnsemble respectively)
+- A list of to-do's and open issues is available [here]()
 
 ---
 
