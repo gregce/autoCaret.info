@@ -24,7 +24,7 @@ knit_print.htmlwidget <- function(x, ...) {
 }
 ```
 
-<img src="images/autoCaretUI.png" id="overview-image" width=350 height=200 align="right"/>
+<img src="images/autoCaret_model_summary.gif" id="overview-image" width=350 height=200 align="right"/>
 
 ## Overview
 

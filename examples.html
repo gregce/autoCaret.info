@@ -13,19 +13,19 @@
 
 <title>Getting Started</title>
 
-<script src="site_libs/jquery/jquery.min.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap/css/cosmo.min.css" rel="stylesheet" />
-<script src="site_libs/bootstrap/js/bootstrap.min.js"></script>
-<script src="site_libs/bootstrap/shim/html5shiv.min.js"></script>
-<script src="site_libs/bootstrap/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui/jquery-ui.min.js"></script>
-<link href="site_libs/tocify/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify/jquery.tocify.js"></script>
-<script src="site_libs/navigation/tabsets.js"></script>
-<link href="site_libs/highlightjs/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs/highlight.js"></script>
-<link href="site_libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-1.1/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -343,7 +343,8 @@ names(Sonar)
 #&gt; [41] &quot;V41&quot;   &quot;V42&quot;   &quot;V43&quot;   &quot;V44&quot;   &quot;V45&quot;   &quot;V46&quot;   &quot;V47&quot;   &quot;V48&quot;  
 #&gt; [49] &quot;V49&quot;   &quot;V50&quot;   &quot;V51&quot;   &quot;V52&quot;   &quot;V53&quot;   &quot;V54&quot;   &quot;V55&quot;   &quot;V56&quot;  
 #&gt; [57] &quot;V57&quot;   &quot;V58&quot;   &quot;V59&quot;   &quot;V60&quot;   &quot;Class&quot;</code></pre>
-<p>Having both the data loaded and having inspected it, we can now make use of the <code>autoCaret::autoModel()</code> function In this example, we’d like to try and distinguish Rocks (R) from Mines (R), so we will attempt to predict the <code>Class</code> variable in the Sonar dataframe.</p>
+<p>Having both the data loaded and having inspected it, we can now make use of the <code>autoCaret::autoModel()</code> function.</p>
+<p>In this example, we’d like to try and distinguish Rocks (R) from Mines (R), so we will attempt to predict the <code>Class</code> variable in the Sonar dataframe.</p>
 <p>Using it’s defaults, <code>autoModel</code> has 2 arguments we need to specify: <code>df</code> and <code>y</code>.</p>
 <p><code>df</code> is the Dataframe that we’d like to use build a binary classification model, while <code>y</code> is our classification target or response variable. We can use a non-exported package function, <code>autoCaret:::checkBinaryTrait</code> to determine if our <code>y</code> variable is indeed binary. The <code>autoModel</code> functionality will perform this for us as well.</p>
 <pre class="r"><code># Manually check that our intended y paramter is indeed binary
@@ -351,9 +352,7 @@ autoCaret:::checkBinaryTrait(Sonar$Class)
 #&gt; [1] TRUE
 
 # Generate an autoCaret object using the autoModel function
-mod &lt;- autoCaret::autoModel(df = Sonar, y = Class, progressBar = FALSE)
-#&gt; 
-#&gt; This data.table install has not detected OpenMP support. It will work but slower in single threaded mode.</code></pre>
+mod &lt;- autoCaret::autoModel(df = Sonar, y = Class, progressBar = FALSE)</code></pre>
 <p><br></p>
 </div>
 <div id="exploring-an-autocaret-object" class="section level2">
@@ -365,7 +364,7 @@ class(mod)
 
 # High level 
 nrow(summary.default(mod))
-#&gt; [1] 16</code></pre>
+#&gt; [1] 19</code></pre>
 <p>Running the summary function on our model output displays a wealth of information about the contents of the object as well as the procedural steps taken during modeling. In our example, we observe:</p>
 <ul>
 <li>that our initial dataset of 208 observation was split into a training and test set containing 167 and 41 observations</li>
@@ -381,7 +380,7 @@ overview &lt;- summary(mod)
 #&gt; The training set has:  167  observations 
 #&gt; The test set has:      41  observations 
 #&gt; ---------------------
-#&gt; Overall modeling took: 0.67 minutes 
+#&gt; Overall modeling took: 0.62 minutes 
 #&gt; During that time the training data was boostrap resampled 10 times 
 #&gt; 
 #&gt; The following classification models were used to create an ensemble: 
@@ -428,7 +427,7 @@ overview
 #&gt; [1] 41
 #&gt; 
 #&gt; $modeling_time
-#&gt; [1] 0.67
+#&gt; [1] 0.62
 #&gt; 
 #&gt; $number_resamples
 #&gt; [1] 10
@@ -524,6 +523,50 @@ caret::confusionMatrix(data = preds, reference = new$Class)
 #&gt;                                           
 #&gt;        &#39;Positive&#39; Class : M               
 #&gt; </code></pre>
+<p><br></p>
+</div>
+<div id="using-the-autocaret-add-in" class="section level2">
+<h2>Using the <code>autoCaret</code> add-in</h2>
+<p>As an alternative option to the CLI, we provide an intuitive GUI in the form an <a href="https://rstudio.github.io/rstudioaddins/">RStudio Addin</a>.</p>
+<p>The add-in may be accessed in two ways:</p>
+<ul>
+<li>Via the Addin menu following loading <code>autoCaret</code> via <code>library(autoCaret)</code> in <a href="https://www.rstudio.com/products/rstudio/download/">a recent release of Rstudio</a></li>
+<li>By running the following non-exported function autoCaret:::autoCaretUI().</li>
+</ul>
+<div id="setup-screen" class="section level3">
+<h3>Setup Screen</h3>
+<p>When launched, you’ll be presented with the following screen.</p>
+<p><img src="images/examples/initial_screen.png" id="overview-image" width=550 height=400 align="middle"/></p>
+<p>From here you may either:</p>
+<ul>
+<li>Upload a file containing your dataset</li>
+<li>Select the dataset you wish to model from your local <code>R</code> environment</li>
+</ul>
+<p><strong>Note:</strong> There will be nothing available to list if you have yet to load a <code>data.frame</code> in your local Global environment.</p>
+<p>To illustrate the GUI’s use, let’s use the same <code>Sonar</code> dataset from the above examples:</p>
+<p><img src="images/examples/sonar_selected.png" id="overview-image" width=550 height=400 align="middle"/></p>
+<p>With the Sonar data.frame selected, we’ll be presented with a preview of our data to visually inspect. Once we select the appropriate variable to predict, clicking <code>Run autoCaret</code> will launch the underlying process.</p>
+<p>When modeling completes, the other tabs in the Addin are enabled and you may select them to view their contents.</p>
+</div>
+<div id="model-summary" class="section level3">
+<h3>Model Summary</h3>
+<p>The model summary screen provides an interactive way for you to review the resultant model object created when running <code>autoCaret</code>.</p>
+<p><img src="images/examples/model_summary.png" id="overview-image" width=550 height=400 align="middle"/></p>
+<p>Clicking on the left hand side results visualization provides a layer of interactivity. This is a useful for comparing the results of various models tried during the training phase and for gaining a better intuitive sense of the strengths and weaknesses of your models.</p>
+</div>
+<div id="predicting-new-data-1" class="section level3">
+<h3>Predicting new data</h3>
+<p>Like in the section above, we use the <code>new</code> data.frame to simulate predictions.</p>
+<pre class="r"><code>#For the sake of example, simulate new data by resampling our original data frame
+new &lt;- Sonar[sample(1:nrow(Sonar), 50, replace=TRUE),]</code></pre>
+<p>Having it pre-exist in our Global Environment, we can select it from dropbown on the <code>Use your model</code> tab. Once we compute predictions, they will be saved in our Environment and named <em>autoModelPredictionResult</em>.</p>
+<p><img src="images/examples/predict_new.png" id="overview-image" width=550 height=400 align="middle"/></p>
+</div>
+<div id="learning-more" class="section level3">
+<h3>Learning more</h3>
+<p>Finally, during the modelling process, <code>autoCaret</code> runs a variety of diagnostics that help validate the underlying distribution and features of your data prior to pre-processing. Depending on what we find, we surface these as qualitative suggestions on the <code>learning more tab</code>. Feel free to review and incorporate these suggestions in the data cleaning step as you build <a href="https://en.wikipedia.org/wiki/Binary_classification" target="_top">binary classifiers</a> with <code>autoCaret</code>.</p>
+<p><img src="images/examples/learn_more.png" id="overview-image" width=550 height=400 align="middle"/></p>
+</div>
 </div>
 
 
