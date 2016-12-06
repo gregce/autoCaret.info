@@ -129,7 +129,7 @@ summary(mod)
 autoCaret:::autoCaretUI()
 ```
 
-<img src="images/Plot_Interactivity_Demo2.gif" width="70%" height="70%" align="middle"/>
+<img src="images/autoCaret_model_summary.gif" width="70%" height="70%" align="middle"/>
 
 ---
 
