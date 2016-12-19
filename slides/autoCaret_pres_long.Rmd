@@ -2,7 +2,7 @@
 title: "autoCaret"
 subtitle: "make 🤖 machine learning easier"
 author: "Greg C, Michael M, Rock B"
-date: "2016/12/7"
+date: "2016/12/19"
 output:
   xaringan::moon_reader:
     seal: yes
